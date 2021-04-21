@@ -1,0 +1,15 @@
+asgiref==3.3.4
+boto3==1.17.54
+botocore==1.20.54
+Django==3.0
+django-angular==2.3
+django-storages==1.11.1
+jmespath==0.10.0
+pkg-resources==0.0.0
+python-dateutil==2.8.1
+pytz==2021.1
+s3transfer==0.4.0
+six==1.15.0
+sqlparse==0.4.1
+typing-extensions==3.7.4.3
+urllib3==1.26.4

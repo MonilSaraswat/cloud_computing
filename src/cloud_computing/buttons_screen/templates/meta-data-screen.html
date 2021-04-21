@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+    <!-- JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+    <script src="{{STATIC_URL}}js/lib/angular.js"></script>
+    <script src="{{STATIC_URL}}js/lib/jquery.js"></script>
+    <script src="{{STATIC_URL}}js/lib/angular-resource.js"></script>
+    <script src="{{STATIC_URL}}js/lib/django-angular.js"></script>
+    <script src="{{STATIC_URL}}js/app/app.js"></script>
+    <script src="{{STATIC_URL}}js/app/components/mainScreen/js/controllers/mainCtrl.js"></script>
+    <style>
+        .marginT20{
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body ng-app="cloudComputingApp">
+{% load djng_tags %}
+    <div ng-controller="metaCtrl" style="width:50%; margin:auto;">
+        <form id="metaForm" name="{{ form.form_name }}">
+            {% csrf_token %}
+            {{ form }}
+        </form>
+        <a href="/">Back</a>
+        <div ng-if="fetchedData" class="marginT20">
+        {% verbatim %}
+        <img src="{{fetchedData.aws_path}}" alt="selectedFile" height="200" width="300" class="marginT20">
+        <div class="marginT20">
+            <h4>Item MetaData</h4>
+            <table class="table table-striped">
+                <tr>
+                    <td>File Name</td>
+                    <td>{{fetchedData.name}}</td>
+                </tr>
+                <tr>
+                    <td>File Size</td>
+                    <td>{{fetchedData.size}}</td>
+                </tr>
+                <tr>
+                    <td>File Type</td>
+                    <td>{{fetchedData.type}}</td>
+                </tr>
+            </table>
+        </div>
+        {% endverbatim %}
+    </div>
+
+
+
+    </div>
+</body>
+    {% block scripts %}
+        <!--  Load Django Rmi Tags and Configure in app.js by djangoRMIProvider -->
+        <script type="text/javascript">
+            var djangoRmiTags = {% djng_current_rmi %};
+        </script>
+    {% endblock %}
+</html>
+
