@@ -107,11 +107,11 @@ USE_L10N = True
 
 USE_TZ = True
 
-AWS_ACCESS_KEY_ID = 'AKIAYJATCTFLHQQKMNW2'
-AWS_SECRET_ACCESS_KEY = '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'
-AWS_STORAGE_BUCKET_NAME = 'django-cloud-computing'
+AWS_ACCESS_KEY_ID = ''
+AWS_SECRET_ACCESS_KEY = ''
+AWS_STORAGE_BUCKET_NAME = ''
 
-AWS_S3_CUSTOM_DOMAIN = 'django-cloud-computing.s3.amazonaws.com'
+AWS_S3_CUSTOM_DOMAIN = ''
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
